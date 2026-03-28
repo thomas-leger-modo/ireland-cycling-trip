@@ -76,7 +76,7 @@
         /* Overview stats */
         .stats-bar {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 0;
             background: var(--white);
             border-bottom: 3px solid var(--green);
@@ -374,13 +374,20 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8em; }
+            .hero .dates { font-size: 0.85em; padding: 6px 16px; }
             .stats-bar { grid-template-columns: repeat(2, 1fr); }
             .stat { border-bottom: 1px solid var(--border); }
+            .stat .number { font-size: 1.3em; }
             .day-content { grid-template-columns: 1fr; }
             .day-photo { min-height: 220px; }
             .day-header { flex-wrap: wrap; }
             .day-meta { margin-left: 0; text-align: left; margin-top: 8px; }
-            #map { height: 350px; }
+            .checklist, .travel-card { padding: 20px 16px; }
+            .budget-table td, .budget-table th { padding: 8px 6px; font-size: 0.8em; }
+            .budget-table .hide-mobile { display: none; }
+            .day-details { padding: 20px 16px; }
+            .evening-box { margin: 16px 16px; }
+            .elevation-profile { padding: 12px 16px 20px; }
         }
     </style>
 </head>
@@ -407,10 +414,6 @@
         <div class="number">2,220m / 7,283ft</div>
         <div class="label">Total Ascent</div>
     </div>
-    <div class="stat">
-        <div class="number">5</div>
-        <div class="label">Villages &amp; Towns</div>
-    </div>
 </div>
 
 <!-- Route Summary -->
@@ -419,17 +422,17 @@
     <p style="font-size:0.9em; color: var(--slate-light); margin-bottom: 16px;">Five days around the Iveragh Peninsula. Plenty of time for pub stops, photos, and comparing niggles.</p>
     <table class="budget-table" style="margin-top:0;">
         <thead>
-            <tr><th>Day</th><th>Route</th><th>Distance</th><th>Ascent</th><th></th></tr>
+            <tr><th>Day</th><th>Route</th><th>Distance</th><th>Ascent</th><th class="hide-mobile"></th></tr>
         </thead>
         <tbody>
-            <tr><td style="color:var(--slate-light);">Thu 28</td><td>Arrive in Dublin</td><td colspan="2" style="color:var(--slate-light);">—</td><td style="font-style:italic;color:var(--slate-light);">Pints, jet lag, excitement</td></tr>
-            <tr><td style="color:var(--slate-light);">Fri 29</td><td>Killarney → Killorglin</td><td>22 km / 14 mi</td><td>↑ 110m</td><td style="font-style:italic;color:var(--slate-light);">Train + easy riverside warm-up</td></tr>
-            <tr><td style="color:var(--slate-light);">Sat 30</td><td>Killorglin → Cahersiveen</td><td>40 km / 25 mi</td><td>↑ 380m</td><td style="font-style:italic;color:var(--slate-light);">First sight of the Atlantic</td></tr>
-            <tr><td style="color:var(--slate-light);">Sun 31</td><td>Cahersiveen → Caherdaniel</td><td>55 km / 34 mi</td><td>↑ 780m</td><td style="font-style:italic;color:var(--slate-light);">Skellig Ring, "siiiick views"</td></tr>
-            <tr><td style="color:var(--slate-light);">Mon 1</td><td>Caherdaniel → Kenmare</td><td>47 km / 29 mi</td><td>↑ 370m</td><td style="font-style:italic;color:var(--slate-light);">Recovery day, colourful Sneem</td></tr>
-            <tr><td style="color:var(--slate-light);">Tue 2</td><td>Kenmare → Killarney</td><td>45 km / 28 mi</td><td>↑ 580m</td><td style="font-style:italic;color:var(--slate-light);">The "savage" Gap of Dunloe</td></tr>
-            <tr><td style="color:var(--slate-light);">Wed 3</td><td>Train to Dublin</td><td colspan="2" style="color:var(--slate-light);">—</td><td style="font-style:italic;color:var(--slate-light);">Legs up, debrief the trip</td></tr>
-            <tr><td style="color:var(--slate-light);">Thu 4</td><td>Fly home</td><td colspan="2" style="color:var(--slate-light);">—</td><td style="font-style:italic;color:var(--slate-light);">No bikes, no hills, just memories</td></tr>
+            <tr><td style="color:var(--slate-light);">Thu 28</td><td>Arrive in Dublin</td><td colspan="2" style="color:var(--slate-light);">—</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Pints, jet lag, excitement</td></tr>
+            <tr><td style="color:var(--slate-light);">Fri 29</td><td>Killarney → Killorglin</td><td>22 km / 14 mi</td><td>↑ 110m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Train + easy riverside warm-up</td></tr>
+            <tr><td style="color:var(--slate-light);">Sat 30</td><td>Killorglin → Cahersiveen</td><td>40 km / 25 mi</td><td>↑ 380m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">First sight of the Atlantic</td></tr>
+            <tr><td style="color:var(--slate-light);">Sun 31</td><td>Cahersiveen → Caherdaniel</td><td>55 km / 34 mi</td><td>↑ 780m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Skellig Ring, "siiiick views"</td></tr>
+            <tr><td style="color:var(--slate-light);">Mon 1</td><td>Caherdaniel → Kenmare</td><td>47 km / 29 mi</td><td>↑ 370m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Recovery day, colourful Sneem</td></tr>
+            <tr><td style="color:var(--slate-light);">Tue 2</td><td>Kenmare → Killarney</td><td>45 km / 28 mi</td><td>↑ 580m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">The "savage" Gap of Dunloe</td></tr>
+            <tr><td style="color:var(--slate-light);">Wed 3</td><td>Train to Dublin</td><td colspan="2" style="color:var(--slate-light);">—</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Legs up, debrief the trip</td></tr>
+            <tr><td style="color:var(--slate-light);">Thu 4</td><td>Fly home</td><td colspan="2" style="color:var(--slate-light);">—</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">No bikes, no hills, just memories</td></tr>
             <tr><td></td><td><strong>Total cycling</strong></td><td><strong>210 km / 130 mi</strong></td><td><strong>↑ 2,220m</strong></td><td></td></tr>
         </tbody>
     </table>
