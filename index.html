@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ireland Cycling Holiday — May 28 – June 4, 2026</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Komoot embeds handle maps and elevation profiles -->
     <style>
         :root {
             --green: #1a7a3a;
@@ -104,24 +103,7 @@
             font-family: 'Helvetica Neue', sans-serif;
         }
 
-        /* Map */
-        .map-section {
-            margin: 40px auto;
-            max-width: 960px;
-            padding: 0 24px;
-        }
-        .map-section h2 {
-            text-align: center;
-            margin-bottom: 16px;
-            font-size: 1.6em;
-            color: var(--green-dark);
-        }
-        #map {
-            height: 500px;
-            border-radius: 12px;
-            border: 2px solid var(--border);
-            box-shadow: 0 4px 20px var(--shadow);
-        }
+        /* Komoot embeds */
 
         /* Section headers */
         .section-header {
@@ -267,19 +249,6 @@
             color: var(--slate-light);
             margin-bottom: 8px;
             font-family: 'Helvetica Neue', sans-serif;
-        }
-        .elevation-svg {
-            width: 100%;
-            height: 100px;
-        }
-        .profile-label {
-            font-size: 9px;
-            fill: var(--slate-light);
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-        .profile-grid {
-            stroke: #e0e0e0;
-            stroke-width: 0.5;
         }
 
         /* Evening box */
@@ -427,7 +396,7 @@
 <!-- Stats -->
 <div class="stats-bar">
     <div class="stat">
-        <div class="number">222</div>
+        <div class="number">210</div>
         <div class="label">Kilometres</div>
     </div>
     <div class="stat">
@@ -435,8 +404,8 @@
         <div class="label">Days in the Saddle</div>
     </div>
     <div class="stat">
-        <div class="number">~2,000</div>
-        <div class="label">Metres Climbing</div>
+        <div class="number">2,220</div>
+        <div class="label">Metres Ascent</div>
     </div>
     <div class="stat">
         <div class="number">5</div>
@@ -444,11 +413,7 @@
     </div>
 </div>
 
-<!-- Route Map -->
-<div class="map-section">
-    <h2>The Route</h2>
-    <div id="map"></div>
-</div>
+<!-- Route maps provided by Komoot embeds in each day card -->
 
 <!-- Day 0: Dublin -->
 <div class="container">
@@ -473,8 +438,8 @@
             <span class="date">Friday, May 29</span>
         </div>
         <div class="day-meta">
-            <div class="distance">23 km</div>
-            <div class="elevation">↑ 64m &nbsp; Flat</div>
+            <div class="distance">22.4 km</div>
+            <div class="elevation">↑ 110m &nbsp; Easy</div>
         </div>
     </div>
     <div class="day-body">
@@ -494,22 +459,9 @@
             </div>
         </div>
 
-        <!-- Elevation profile -->
         <div class="elevation-profile">
-            <h4>Elevation Profile — 23 km</h4>
-            <svg class="elevation-svg" viewBox="0 0 900 100" preserveAspectRatio="none">
-                <line x1="50" y1="20" x2="850" y2="20" class="profile-grid"/>
-                <line x1="50" y1="45" x2="850" y2="45" class="profile-grid"/>
-                <line x1="50" y1="70" x2="850" y2="70" class="profile-grid"/>
-                <text x="10" y="24" class="profile-label">100m</text>
-                <text x="10" y="49" class="profile-label">50m</text>
-                <text x="10" y="74" class="profile-label">0m</text>
-                <text x="50" y="92" class="profile-label">Killarney</text>
-                <text x="430" y="92" class="profile-label">Beaufort</text>
-                <text x="790" y="92" class="profile-label">Killorglin</text>
-                <polygon points="50,48 150,47 300,50 450,49 600,51 750,50 850,48 850,70 50,70" fill="var(--green)" opacity="0.3"/>
-                <polyline points="50,48 150,47 300,50 450,49 600,51 750,50 850,48" fill="none" stroke="var(--green)" stroke-width="2"/>
-            </svg>
+            <h4>Route Map &amp; Elevation Profile</h4>
+            <iframe src="https://www.komoot.com/tour/2850153250/embed?profile=1" width="100%" height="580" frameborder="0" scrolling="no" style="border-radius:8px;"></iframe>
         </div>
 
         <div class="evening-box">
@@ -529,8 +481,8 @@
             <span class="date">Saturday, May 30</span>
         </div>
         <div class="day-meta">
-            <div class="distance">47 km</div>
-            <div class="elevation">↑ 281m &nbsp; Moderate</div>
+            <div class="distance">40.2 km</div>
+            <div class="elevation">↑ 380m &nbsp; Moderate</div>
         </div>
     </div>
     <div class="day-body">
@@ -552,23 +504,8 @@
         </div>
 
         <div class="elevation-profile">
-            <h4>Elevation Profile — 47 km (validated via BRouter cycling router)</h4>
-            <svg class="elevation-svg" viewBox="0 0 900 100" preserveAspectRatio="none">
-                <line x1="50" y1="10" x2="850" y2="10" class="profile-grid"/>
-                <line x1="50" y1="30" x2="850" y2="30" class="profile-grid"/>
-                <line x1="50" y1="50" x2="850" y2="50" class="profile-grid"/>
-                <line x1="50" y1="70" x2="850" y2="70" class="profile-grid"/>
-                <text x="4" y="14" class="profile-label">300m</text>
-                <text x="4" y="34" class="profile-label">200m</text>
-                <text x="4" y="54" class="profile-label">100m</text>
-                <text x="4" y="74" class="profile-label">0m</text>
-                <text x="50" y="92" class="profile-label">Killorglin</text>
-                <text x="310" y="92" class="profile-label">Glenbeigh</text>
-                <text x="500" y="92" class="profile-label">Mountain Stage</text>
-                <text x="780" y="92" class="profile-label">Cahersiveen</text>
-                <polygon points="50,55 120,52 200,48 310,50 380,42 440,28 500,25 560,35 620,45 700,50 780,55 850,55 850,70 50,70" fill="var(--green)" opacity="0.3"/>
-                <polyline points="50,55 120,52 200,48 310,50 380,42 440,28 500,25 560,35 620,45 700,50 780,55 850,55" fill="none" stroke="var(--green)" stroke-width="2"/>
-            </svg>
+            <h4>Route Map &amp; Elevation Profile</h4>
+            <iframe src="https://www.komoot.com/tour/2850154965/embed?profile=1" width="100%" height="580" frameborder="0" scrolling="no" style="border-radius:8px;"></iframe>
         </div>
 
         <div class="evening-box">
@@ -588,8 +525,8 @@
             <span class="date">Sunday, May 31</span>
         </div>
         <div class="day-meta">
-            <div class="distance">52 km</div>
-            <div class="elevation">↑ 347m &nbsp; Moderate</div>
+            <div class="distance">55.4 km</div>
+            <div class="elevation">↑ 780m &nbsp; Hard</div>
         </div>
     </div>
     <div class="day-body">
@@ -613,28 +550,8 @@
         </div>
 
         <div class="elevation-profile">
-            <h4>Elevation Profile — 52 km — Neil says: take the coastal road, "siiiick views"</h4>
-            <svg class="elevation-svg" viewBox="0 0 900 100" preserveAspectRatio="none">
-                <line x1="50" y1="10" x2="850" y2="10" class="profile-grid"/>
-                <line x1="50" y1="30" x2="850" y2="30" class="profile-grid"/>
-                <line x1="50" y1="50" x2="850" y2="50" class="profile-grid"/>
-                <line x1="50" y1="70" x2="850" y2="70" class="profile-grid"/>
-                <text x="4" y="14" class="profile-label">300m</text>
-                <text x="4" y="34" class="profile-label">200m</text>
-                <text x="4" y="54" class="profile-label">100m</text>
-                <text x="4" y="74" class="profile-label">0m</text>
-                <text x="50" y="92" class="profile-label">Cahersiveen</text>
-                <text x="200" y="92" class="profile-label">Portmagee</text>
-                <text x="350" y="92" class="profile-label">Kerry Cliffs</text>
-                <text x="510" y="92" class="profile-label">Waterville</text>
-                <text x="640" y="92" class="profile-label">Coomakista</text>
-                <text x="800" y="92" class="profile-label">Caherdaniel</text>
-                <!-- Skellig Ring has rolling terrain with climbs near the cliffs, then Coomakista Pass -->
-                <polygon points="50,55 90,50 130,42 170,38 210,45 250,40 300,32 340,28 370,35 410,45 460,50 510,55 560,48 600,38 640,22 670,28 710,42 760,55 810,58 850,58 850,70 50,70" fill="var(--green)" opacity="0.3"/>
-                <polyline points="50,55 90,50 130,42 170,38 210,45 250,40 300,32 340,28 370,35 410,45 460,50 510,55 560,48 600,38 640,22 670,28 710,42 760,55 810,58 850,58" fill="none" stroke="var(--green)" stroke-width="2"/>
-                <text x="325" y="24" class="profile-label" style="fill: var(--orange); font-weight: bold;">Cliffs</text>
-                <text x="622" y="18" class="profile-label" style="fill: var(--orange); font-weight: bold;">215m</text>
-            </svg>
+            <h4>Route Map &amp; Elevation Profile — Neil says: take the coastal road, "siiiick views"</h4>
+            <iframe src="https://www.komoot.com/tour/2850156692/embed?profile=1" width="100%" height="580" frameborder="0" scrolling="no" style="border-radius:8px;"></iframe>
         </div>
 
         <div class="evening-box">
@@ -654,8 +571,8 @@
             <span class="date">Monday, June 1</span>
         </div>
         <div class="day-meta">
-            <div class="distance">45 km</div>
-            <div class="elevation">↑ 260m &nbsp; Easy</div>
+            <div class="distance">46.9 km</div>
+            <div class="elevation">↑ 370m &nbsp; Moderate</div>
         </div>
     </div>
     <div class="day-body">
@@ -677,23 +594,8 @@
         </div>
 
         <div class="elevation-profile">
-            <h4>Elevation Profile — 45 km (validated via BRouter cycling router, N70 coast road)</h4>
-            <svg class="elevation-svg" viewBox="0 0 900 100" preserveAspectRatio="none">
-                <line x1="50" y1="10" x2="850" y2="10" class="profile-grid"/>
-                <line x1="50" y1="30" x2="850" y2="30" class="profile-grid"/>
-                <line x1="50" y1="50" x2="850" y2="50" class="profile-grid"/>
-                <line x1="50" y1="70" x2="850" y2="70" class="profile-grid"/>
-                <text x="4" y="14" class="profile-label">300m</text>
-                <text x="4" y="34" class="profile-label">200m</text>
-                <text x="4" y="54" class="profile-label">100m</text>
-                <text x="4" y="74" class="profile-label">0m</text>
-                <text x="50" y="92" class="profile-label">Caherdaniel</text>
-                <text x="340" y="92" class="profile-label">Sneem</text>
-                <text x="570" y="92" class="profile-label">Parknasilla</text>
-                <text x="790" y="92" class="profile-label">Kenmare</text>
-                <polygon points="50,55 100,50 160,48 220,52 300,55 370,52 430,48 490,50 560,52 630,55 710,52 780,50 850,52 850,70 50,70" fill="var(--green)" opacity="0.3"/>
-                <polyline points="50,55 100,50 160,48 220,52 300,55 370,52 430,48 490,50 560,52 630,55 710,52 780,50 850,52" fill="none" stroke="var(--green)" stroke-width="2"/>
-            </svg>
+            <h4>Route Map &amp; Elevation Profile</h4>
+            <iframe src="https://www.komoot.com/tour/2850158029/embed?profile=1" width="100%" height="580" frameborder="0" scrolling="no" style="border-radius:8px;"></iframe>
         </div>
 
         <div class="evening-box">
@@ -713,8 +615,8 @@
             <span class="date">Tuesday, June 2 — The Savage Day</span>
         </div>
         <div class="day-meta">
-            <div class="distance">~55 km</div>
-            <div class="elevation">↑ ~760m &nbsp; Hard</div>
+            <div class="distance">45.3 km</div>
+            <div class="elevation">↑ 580m &nbsp; Hard</div>
         </div>
     </div>
     <div class="day-body">
@@ -738,28 +640,8 @@
         </div>
 
         <div class="elevation-profile">
-            <h4>Elevation Profile — ~55 km — "The route is savage" — Neil's mate (Gap of Dunloe road not in routing APIs; distance from kerrycycling.com + Kenmare–Moll's Gap segment validated via BRouter)</h4>
-            <svg class="elevation-svg" viewBox="0 0 900 100" preserveAspectRatio="none">
-                <line x1="50" y1="10" x2="850" y2="10" class="profile-grid"/>
-                <line x1="50" y1="30" x2="850" y2="30" class="profile-grid"/>
-                <line x1="50" y1="50" x2="850" y2="50" class="profile-grid"/>
-                <line x1="50" y1="70" x2="850" y2="70" class="profile-grid"/>
-                <text x="4" y="14" class="profile-label">300m</text>
-                <text x="4" y="34" class="profile-label">200m</text>
-                <text x="4" y="54" class="profile-label">100m</text>
-                <text x="4" y="74" class="profile-label">0m</text>
-                <text x="50" y="92" class="profile-label">Kenmare</text>
-                <text x="215" y="92" class="profile-label">Moll's Gap</text>
-                <text x="380" y="92" class="profile-label">Black Valley</text>
-                <text x="560" y="92" class="profile-label">Head of Gap</text>
-                <text x="740" y="92" class="profile-label">Killarney</text>
-                <!-- Climb to Moll's Gap, descent to Black Valley, climb through Gap, descent to Killarney -->
-                <polygon points="50,55 80,48 120,38 160,28 210,14 240,12 270,25 310,40 360,52 400,56 440,52 480,42 530,28 570,18 600,16 630,24 670,35 710,45 760,52 810,55 850,52 850,70 50,70" fill="var(--green)" opacity="0.3"/>
-                <polyline points="50,55 80,48 120,38 160,28 210,14 240,12 270,25 310,40 360,52 400,56 440,52 480,42 530,28 570,18 600,16 630,24 670,35 710,45 760,52 810,55 850,52" fill="none" stroke="var(--orange)" stroke-width="2.5"/>
-                <!-- Peak labels -->
-                <text x="220" y="8" class="profile-label" style="fill: var(--orange); font-weight: bold;">262m</text>
-                <text x="580" y="12" class="profile-label" style="fill: var(--orange); font-weight: bold;">241m</text>
-            </svg>
+            <h4>Route Map &amp; Elevation Profile — "The route is savage" — Neil's mate</h4>
+            <iframe src="https://www.komoot.com/tour/2850163660/embed?profile=1" width="100%" height="580" frameborder="0" scrolling="no" style="border-radius:8px;"></iframe>
         </div>
 
         <div class="evening-box">
@@ -867,166 +749,6 @@
     <p style="margin-top:4px;">Photos: Wikimedia Commons (CC-BY-SA). Map: OpenStreetMap contributors.</p>
 </div>
 
-<!-- Leaflet Map Script -->
-<script>
-    const map = L.map('map').setView([51.9, -9.85], 10);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
-        maxZoom: 18,
-    }).addTo(map);
-
-    // Route geometries from BRouter cycling router (Days 1-4 validated, Day 5 approximate - Gap of Dunloe not in routing data)
-    const days = [
-        {
-            name: 'Day 1: Killarney → Killorglin (23km, ↑64m)',
-            color: '#4CAF50',
-            points: [[52.0599,-9.5098],[52.0596,-9.5116],[52.0589,-9.5113],[52.0579,-9.5112],[52.0572,-9.5117],[52.0571,-9.5146],[52.059,-9.5199],[52.063,-9.5209],[52.0662,-9.5246],[52.0669,-9.5291],[52.0678,-9.5327],[52.0673,-9.5404],[52.0669,-9.5505],[52.0676,-9.5576],[52.0684,-9.5626],[52.0692,-9.567],[52.0692,-9.57],[52.07,-9.5723],[52.0704,-9.5775],[52.0706,-9.5822],[52.0706,-9.5871],[52.0713,-9.5933],[52.072,-9.5983],[52.0716,-9.6022],[52.0721,-9.6103],[52.0742,-9.6185],[52.0751,-9.6232],[52.0799,-9.6279],[52.0799,-9.6375],[52.0864,-9.6411],[52.0909,-9.6458],[52.097,-9.6703],[52.1007,-9.6855],[52.1035,-9.7004],[52.1056,-9.7128],[52.1047,-9.731],[52.1043,-9.7455],[52.1053,-9.7664],[52.1071,-9.7719],[52.1087,-9.7776],[52.1076,-9.7812],[52.1068,-9.7836]]
-        },
-        {
-            name: 'Day 2: Killorglin → Cahersiveen (47km, ↑281m)',
-            color: '#2196F3',
-            points: [[52.1068,-9.7836],[52.1084,-9.7855],[52.1158,-9.7864],[52.1174,-9.7948],[52.1172,-9.8231],[52.1105,-9.8493],[52.1128,-9.8672],[52.1089,-9.8873],[52.1002,-9.897],[52.0915,-9.907],[52.0833,-9.9236],[52.0768,-9.9158],[52.0726,-9.9131],[52.0692,-9.9037],[52.0642,-9.9123],[52.0604,-9.923],[52.0579,-9.9337],[52.0544,-9.9461],[52.0535,-9.9469],[52.0459,-9.9564],[52.042,-9.9796],[52.0421,-9.9895],[52.0359,-10.0045],[52.034,-10.0141],[52.0369,-10.025],[52.0355,-10.0436],[52.0381,-10.0521],[52.0319,-10.0686],[52.0329,-10.0771],[52.0291,-10.0901],[52.0236,-10.094],[52.0161,-10.0994],[52.0065,-10.103],[51.9981,-10.115],[51.9924,-10.1218],[51.9824,-10.1377],[51.9749,-10.1514],[51.9721,-10.158],[51.9675,-10.1688],[51.9717,-10.1761],[51.9692,-10.1974],[51.966,-10.2051],[51.9569,-10.2277],[51.9518,-10.2291],[51.9472,-10.2235]]
-        },
-        {
-            name: 'Day 3: Cahersiveen → Caherdaniel via Skellig Ring (~55km, ↑~450m)',
-            color: '#FF9800',
-            // Manually constructed coastal route — BRouter doesn't follow the coast here
-            points: [
-                [51.9472, -10.2235],  // Cahersiveen
-                [51.9400, -10.2380],  // South on R565
-                [51.9300, -10.2440],
-                [51.9150, -10.2380],
-                [51.9050, -10.2420],
-                [51.8950, -10.2600],  // Approaching Portmagee
-                [51.8910, -10.2800],
-                [51.8900, -10.3000],
-                [51.8890, -10.3200],
-                [51.8850, -10.3400],  // Portmagee
-                [51.8810, -10.3550],  // Skellig Ring road west
-                [51.8700, -10.3600],  // Kerry Cliffs area
-                [51.8550, -10.3400],  // South around the coast
-                [51.8400, -10.3150],  // Ballinskelligs Bay
-                [51.8300, -10.2900],  // Ballinskelligs
-                [51.8250, -10.2600],  // Coast road east
-                [51.8250, -10.2300],
-                [51.8300, -10.2000],  // Approaching Waterville
-                [51.8300, -10.1740],  // Waterville
-                [51.8200, -10.1700],  // South on N70 coast road
-                [51.8100, -10.1600],
-                [51.8000, -10.1650],  // Coomakista Pass area
-                [51.7900, -10.1600],
-                [51.7800, -10.1550],
-                [51.7750, -10.1450],
-                [51.7720, -10.1300],
-                [51.7700, -10.1100],  // Approaching Caherdaniel
-                [51.7650, -10.1000],
-                [51.7614, -10.0758],  // Caherdaniel
-            ]
-        },
-        {
-            name: 'Day 4: Caherdaniel → Kenmare (45km, ↑260m)',
-            color: '#9C27B0',
-            // BRouter fastbike profile — follows N70 coast road via Sneem
-            points: [[51.7614,-10.0758],[51.764,-10.0731],[51.7683,-10.0684],[51.771,-10.0637],[51.7768,-10.0482],[51.7791,-10.038],[51.779,-10.0328],[51.7767,-10.0256],[51.7743,-10.0208],[51.7731,-10.0157],[51.7754,-10.0097],[51.779,-10.0036],[51.782,-10.0007],[51.7872,-9.9942],[51.7906,-9.9886],[51.7927,-9.989],[51.7955,-9.9886],[51.8065,-9.9838],[51.8146,-9.9843],[51.818,-9.9812],[51.8242,-9.9774],[51.8254,-9.9738],[51.8293,-9.9512],[51.8305,-9.9328],[51.8368,-9.9171],[51.8385,-9.9002],[51.8339,-9.896],[51.8326,-9.8972],[51.8303,-9.8912],[51.8229,-9.8801],[51.8199,-9.8743],[51.819,-9.8669],[51.8233,-9.8579],[51.8267,-9.8467],[51.8263,-9.8422],[51.8296,-9.8327],[51.8307,-9.823],[51.8331,-9.8092],[51.8379,-9.7894],[51.8421,-9.7746],[51.8444,-9.7613],[51.8482,-9.7499],[51.8543,-9.7457],[51.8531,-9.7436],[51.8567,-9.7289],[51.8618,-9.7112],[51.8648,-9.6947],[51.8697,-9.6664],[51.8765,-9.6367],[51.8813,-9.6065],[51.8831,-9.592],[51.8835,-9.5861],[51.8803,-9.5846]]
-        },
-        {
-            name: 'Day 5: Kenmare → Killarney via Gap of Dunloe ⭐ (~55km, ↑~760m)',
-            color: '#e87c1e',
-            // Kenmare→Moll's Gap from BRouter. Gap section approximate (not in routing APIs).
-            // Kate Kearney's→Killarney from BRouter.
-            points: [
-                [51.8803, -9.5846],  // Kenmare
-                [51.8750, -9.6000],  // West on N71 into mountains
-                [51.8700, -9.6150],
-                [51.8620, -9.6300],
-                [51.8550, -9.6450],  // Moll's Gap area
-                [51.8600, -9.6600],  // NW on N71 past Ladies View
-                [51.8650, -9.6750],  // Turn west off N71 toward Black Valley
-                [51.8700, -9.6900],
-                [51.8751, -9.7139],  // Black Valley
-                [51.8804, -9.7303],
-                [51.8990, -9.7560],  // Gap of Dunloe - heading north
-                [51.9154, -9.7662],
-                [51.9400, -9.7550],
-                [51.9650, -9.7450],
-                [51.9830, -9.7400],  // Kate Kearney's Cottage
-                [51.9898, -9.6494],  // East through Beaufort
-                [52.0072, -9.6422],
-                [52.0396, -9.6325],
-                [52.0565, -9.6239],
-                [52.0692, -9.5991],
-                [52.0706, -9.5861],
-                [52.0673, -9.5509],
-                [52.0599, -9.5098],  // Killarney
-            ]
-        }
-    ];
-
-    // Draw each day's route
-    days.forEach(day => {
-        L.polyline(day.points, {
-            color: day.color,
-            weight: 4,
-            opacity: 0.85
-        }).addTo(map).bindPopup(day.name);
-    });
-
-    // Town markers
-    const towns = [
-        { name: 'Killarney', lat: 52.0599, lng: -9.5097, desc: 'Start/Finish — Bikes & Train' },
-        { name: 'Killorglin', lat: 52.1068, lng: -9.7835, desc: 'Night 1 — Laune Bridge House' },
-        { name: 'Glenbeigh', lat: 52.0569, lng: -9.9458, desc: 'Mountain Stage views' },
-        { name: 'Cahersiveen', lat: 51.9473, lng: -10.2236, desc: 'Night 2 — QC\'s seafood' },
-        { name: 'Portmagee', lat: 51.8850, lng: -10.3400, desc: 'Skellig Ring — colourful fishing village' },
-        { name: 'Kerry Cliffs', lat: 51.8500, lng: -10.3300, desc: '300m cliffs — higher than Cliffs of Moher' },
-        { name: 'Waterville', lat: 51.8279, lng: -10.1697, desc: 'Lunch stop — Chaplin loved it' },
-        { name: 'Caherdaniel', lat: 51.7642, lng: -10.0897, desc: 'Night 3 — Derrynane Beach' },
-        { name: 'Sneem', lat: 51.8306, lng: -9.8986, desc: 'Lunch stop — colourful village' },
-        { name: 'Kenmare', lat: 51.8802, lng: -9.5844, desc: 'Night 4 — Foley\'s Town House' },
-        { name: 'Moll\'s Gap', lat: 51.8436, lng: -9.6781, desc: '262m — highest point on Ring of Kerry' },
-        { name: 'Gap of Dunloe', lat: 51.9250, lng: -9.7600, desc: '"The route is savage"' },
-    ];
-
-    const stayIcon = L.divIcon({
-        className: 'custom-marker',
-        html: '<div style="background:#1a7a3a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);font-family:sans-serif;">⌂</div>',
-        iconSize: [28, 28],
-        iconAnchor: [14, 14],
-    });
-
-    const poiIcon = L.divIcon({
-        className: 'custom-marker',
-        html: '<div style="background:#e87c1e;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold;border:2px solid white;box-shadow:0 2px 4px rgba(0,0,0,0.3);font-family:sans-serif;">●</div>',
-        iconSize: [20, 20],
-        iconAnchor: [10, 10],
-    });
-
-    const overnightTowns = ['Killarney', 'Killorglin', 'Cahersiveen', 'Caherdaniel', 'Kenmare'];
-
-    towns.forEach(town => {
-        const icon = overnightTowns.includes(town.name) ? stayIcon : poiIcon;
-        L.marker([town.lat, town.lng], { icon })
-            .addTo(map)
-            .bindPopup(`<strong>${town.name}</strong><br>${town.desc}`);
-    });
-
-    // Legend
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = function() {
-        const div = L.DomUtil.create('div', 'legend');
-        div.style.cssText = 'background:white;padding:10px 14px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-family:sans-serif;font-size:12px;line-height:1.8;';
-        div.innerHTML = `
-            <div><span style="display:inline-block;width:24px;height:3px;background:#4CAF50;vertical-align:middle;margin-right:6px;"></span>Day 1</div>
-            <div><span style="display:inline-block;width:24px;height:3px;background:#2196F3;vertical-align:middle;margin-right:6px;"></span>Day 2</div>
-            <div><span style="display:inline-block;width:24px;height:3px;background:#FF9800;vertical-align:middle;margin-right:6px;"></span>Day 3</div>
-            <div><span style="display:inline-block;width:24px;height:3px;background:#9C27B0;vertical-align:middle;margin-right:6px;"></span>Day 4</div>
-            <div><span style="display:inline-block;width:24px;height:3px;background:#e87c1e;vertical-align:middle;margin-right:6px;"></span>Day 5 ⭐</div>
-        `;
-        return div;
-    };
-    legend.addTo(map);
-</script>
 
 </body>
 </html>
