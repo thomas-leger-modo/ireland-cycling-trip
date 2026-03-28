@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ireland Cycling Holiday — May 28 – June 4, 2026</title>
-    <!-- Komoot embeds handle maps and elevation profiles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --green: #1a7a3a;
@@ -17,12 +19,25 @@
             --border: #d4d0c8;
             --white: #ffffff;
             --shadow: rgba(0,0,0,0.08);
+
+            /* Type scale */
+            --text-3xl: 2.8em;
+            --text-2xl: 2em;
+            --text-xl: 1.5em;
+            --text-lg: 1.25em;
+            --text-base: 1em;
+            --text-sm: 0.85em;
+            --text-xs: 0.75em;
+
+            /* Font stacks */
+            --font-serif: 'Newsreader', Georgia, serif;
+            --font-sans: 'Outfit', 'Helvetica Neue', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: var(--font-serif);
             background: var(--cream);
             color: var(--slate);
             line-height: 1.7;
@@ -30,40 +45,55 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, #2e8b57 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 120px 40px 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: #1a1a1a;
         }
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/2/2c/Gap_of_Dunloe.jpg') center/cover;
-            opacity: 0.15;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Ladies_View_in_summer%2C_Ring_of_Kerry%2C_Killarney_National_Park_%28panoramic%29.jpg/1920px-Ladies_View_in_summer%2C_Ring_of_Kerry%2C_Killarney_National_Park_%28panoramic%29.jpg') center 60%/cover;
+            opacity: 0.85;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.25) 0%,
+                rgba(0, 0, 0, 0.35) 100%
+            );
         }
         .hero * { position: relative; z-index: 1; }
         .hero h1 {
-            font-size: 2.8em;
-            font-weight: 400;
+            font-size: var(--text-3xl);
+            font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 8px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
         }
         .hero .subtitle {
-            font-size: 1.3em;
-            opacity: 0.9;
+            font-size: var(--text-lg);
+            opacity: 0.95;
             font-style: italic;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.3);
         }
         .hero .dates {
-            margin-top: 20px;
-            font-size: 1.1em;
+            margin-top: 24px;
+            font-size: var(--text-sm);
+            font-family: var(--font-sans);
             background: rgba(255,255,255,0.15);
             display: inline-block;
-            padding: 8px 24px;
+            padding: 10px 28px;
             border-radius: 30px;
             backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 0.5px;
         }
 
         /* Container */
@@ -78,32 +108,39 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 0;
-            background: var(--white);
-            border-bottom: 3px solid var(--green);
-            box-shadow: 0 2px 12px var(--shadow);
+            background: var(--green-dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
         .stat {
             text-align: center;
-            padding: 24px 16px;
-            border-right: 1px solid var(--border);
+            padding: 28px 16px;
+            border-right: 1px solid rgba(255,255,255,0.12);
         }
         .stat:last-child { border-right: none; }
         .stat .number {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--green);
-            font-family: 'Helvetica Neue', sans-serif;
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--white);
+            font-family: var(--font-sans);
         }
         .stat .label {
-            font-size: 0.85em;
-            color: var(--slate-light);
+            font-size: var(--text-sm);
+            color: rgba(255,255,255,0.6);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-top: 4px;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
 
         /* Route summary */
+        .summary-section {
+            margin-top: 48px;
+        }
+        .summary-section > p {
+            font-size: var(--text-sm);
+            color: var(--slate-light);
+            margin-bottom: 20px;
+        }
         .summary-days {
             display: flex;
             flex-direction: column;
@@ -118,8 +155,8 @@
         }
         .summary-day:last-child { border-bottom: none; }
         .summary-date {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 0.85em;
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
             color: var(--slate-light);
             min-width: 48px;
             flex-shrink: 0;
@@ -132,13 +169,17 @@
             color: var(--slate);
         }
         .summary-stats {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 0.85em;
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
             color: var(--green);
             margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         .summary-desc {
-            font-size: 0.85em;
+            font-size: var(--text-sm);
             font-style: italic;
             color: var(--slate-light);
             margin-top: 2px;
@@ -158,13 +199,38 @@
             font-weight: bold;
         }
 
+        /* Difficulty badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: var(--text-xs);
+            font-weight: 500;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+        .badge--easy {
+            background: #e8f5e9;
+            color: #2d8a4e;
+        }
+        .badge--moderate {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .badge--hard {
+            background: #fce4ec;
+            color: #c62828;
+        }
+
         /* Section headers */
         .section-header {
             text-align: center;
-            padding: 48px 24px 24px;
+            padding: 64px 24px 32px;
         }
         .section-header h2 {
-            font-size: 2em;
+            font-size: var(--text-2xl);
             color: var(--green-dark);
             margin-bottom: 8px;
         }
@@ -205,34 +271,38 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4em;
+            font-size: var(--text-lg);
             font-weight: bold;
             flex-shrink: 0;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
         .day-title h3 {
-            font-size: 1.3em;
+            font-size: var(--text-lg);
             color: var(--green-dark);
             margin-bottom: 2px;
         }
         .day-title .date {
-            font-size: 0.9em;
+            font-size: var(--text-sm);
             color: var(--slate-light);
             font-style: italic;
         }
         .day-meta {
             margin-left: auto;
             text-align: right;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
         .day-meta .distance {
-            font-size: 1.6em;
+            font-size: var(--text-xl);
             font-weight: bold;
             color: var(--green);
         }
         .day-meta .elevation {
-            font-size: 0.85em;
+            font-size: var(--text-sm);
             color: var(--slate-light);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
         }
         .day-body {
             padding: 0;
@@ -254,27 +324,27 @@
             position: absolute;
             bottom: 8px;
             right: 8px;
-            font-size: 0.65em;
+            font-size: var(--text-xs);
             color: rgba(255,255,255,0.7);
             background: rgba(0,0,0,0.4);
             padding: 2px 8px;
             border-radius: 4px;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
         .day-details {
             padding: 28px 32px;
         }
         .day-details h4 {
-            font-size: 1em;
+            font-size: var(--text-sm);
             color: var(--green);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin: 20px 0 8px;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
         .day-details h4:first-child { margin-top: 0; }
         .day-details p, .day-details li {
-            font-size: 0.92em;
+            font-size: var(--text-base);
             line-height: 1.6;
         }
         .day-details ul {
@@ -286,7 +356,7 @@
             position: relative;
         }
         .day-details ul li::before {
-            content: '→';
+            content: '\2192';
             position: absolute;
             left: 0;
             color: var(--green);
@@ -299,12 +369,12 @@
             background: #fafafa;
         }
         .elevation-profile h4 {
-            font-size: 0.85em;
+            font-size: var(--text-sm);
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--slate-light);
             margin-bottom: 8px;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
 
         /* Evening box */
@@ -316,9 +386,11 @@
             border-left: 4px solid var(--orange);
         }
         .evening-box h4 {
-            color: var(--orange) !important;
-            margin: 0 0 8px !important;
-            font-size: 0.9em !important;
+            color: var(--orange);
+            margin: 0 0 8px;
+            font-size: var(--text-sm);
+            text-transform: none;
+            letter-spacing: 0;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -326,11 +398,16 @@
         .evening-box h4::before {
             content: '';
             display: inline-block;
-            width: 14px;
-            height: 20px;
-            background: linear-gradient(to bottom, #f5e6c8 30%, #1a1a1a 30%);
-            border-radius: 2px 2px 1px 1px;
+            width: 16px;
+            height: 22px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 32'%3E%3Cpath d='M2,10 L3,29 Q3,32 5,32 L15,32 Q17,32 17,29 L18,10 Z' fill='%231a1a1a'/%3E%3Cpath d='M2,10 Q2,4 10,3 Q18,4 18,10 Z' fill='%23F2DEB6'/%3E%3C/svg%3E") no-repeat center/contain;
             flex-shrink: 0;
+        }
+        .evening-box p {
+            font-size: var(--text-sm);
+        }
+        .evening-box p + p {
+            margin-top: 8px;
         }
         .evening-box .stay-name {
             font-weight: bold;
@@ -366,9 +443,9 @@
             color: white;
             padding: 2px 12px;
             border-radius: 12px;
-            font-size: 0.8em;
+            font-size: var(--text-sm);
             margin-bottom: 12px;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
 
         /* Checklist */
@@ -384,7 +461,7 @@
         .checklist h2 {
             color: var(--green-dark);
             margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: var(--text-xl);
         }
         .checklist-item {
             display: flex;
@@ -415,7 +492,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 16px;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: var(--font-sans);
         }
         .budget-table th {
             text-align: left;
@@ -423,12 +500,12 @@
             background: var(--green);
             color: white;
             font-weight: 500;
-            font-size: 0.9em;
+            font-size: var(--text-sm);
         }
         .budget-table td {
             padding: 10px 16px;
             border-bottom: 1px solid #eee;
-            font-size: 0.9em;
+            font-size: var(--text-sm);
         }
         .budget-table tr:last-child td {
             font-weight: bold;
@@ -439,28 +516,43 @@
         /* Footer */
         .footer {
             text-align: center;
-            padding: 40px;
+            padding: 48px 40px;
             color: var(--slate-light);
-            font-size: 0.85em;
+            font-size: var(--text-sm);
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero { padding: 80px 24px 60px; }
             .hero h1 { font-size: 1.8em; }
-            .hero .dates { font-size: 0.85em; padding: 6px 16px; }
+            .hero .dates { font-size: var(--text-xs); padding: 8px 20px; }
             .stats-bar { grid-template-columns: 1fr; }
-            .stat { border-bottom: 1px solid var(--border); }
-            .stat .number { font-size: 1.3em; }
+            .stat { border-bottom: 1px solid rgba(255,255,255,0.12); border-right: none; }
+            .stat:last-child { border-bottom: none; }
+            .stat .number { font-size: var(--text-lg); }
             .day-content { grid-template-columns: 1fr; }
             .day-photo { min-height: 220px; }
             .day-header { flex-wrap: wrap; }
             .day-meta { margin-left: 0; text-align: left; margin-top: 8px; }
+            .day-meta .elevation { justify-content: flex-start; }
             .checklist, .travel-card { padding: 20px 16px; }
-            .budget-table td, .budget-table th { padding: 8px 6px; font-size: 0.8em; }
+            .budget-table td, .budget-table th { padding: 8px 6px; font-size: var(--text-xs); }
             .budget-table .hide-mobile { display: none; }
             .day-details { padding: 20px 16px; }
             .evening-box { margin: 16px 16px; }
             .elevation-profile { padding: 12px 16px 20px; }
+            .section-header { padding: 48px 24px 24px; }
         }
     </style>
 </head>
@@ -490,9 +582,9 @@
 </div>
 
 <!-- Route Summary -->
-<div class="checklist summary-section" style="margin-top: 40px;">
+<div class="checklist summary-section">
     <h2>Route Summary</h2>
-    <p style="font-size:0.9em; color: var(--slate-light); margin-bottom: 20px;">Five days around the Iveragh Peninsula. Plenty of time for pub stops, photos, and comparing niggles.</p>
+    <p>Five days around the Iveragh Peninsula. Plenty of time for pub stops, photos, and comparing niggles.</p>
 
     <div class="summary-days">
         <div class="summary-day summary-day--rest">
@@ -506,7 +598,7 @@
             <div class="summary-date">Fri 29</div>
             <div class="summary-info">
                 <div class="summary-route">Killarney → Killorglin</div>
-                <div class="summary-stats">22 km / 14 mi &nbsp;·&nbsp; ↑ 110m &nbsp;·&nbsp; Easy</div>
+                <div class="summary-stats">22 km / 14 mi &nbsp;·&nbsp; ↑ 110m <span class="badge badge--easy">Easy</span></div>
                 <div class="summary-desc">Train + easy riverside warm-up</div>
             </div>
         </div>
@@ -514,7 +606,7 @@
             <div class="summary-date">Sat 30</div>
             <div class="summary-info">
                 <div class="summary-route">Killorglin → Cahersiveen</div>
-                <div class="summary-stats">40 km / 25 mi &nbsp;·&nbsp; ↑ 380m &nbsp;·&nbsp; Moderate</div>
+                <div class="summary-stats">40 km / 25 mi &nbsp;·&nbsp; ↑ 380m <span class="badge badge--moderate">Moderate</span></div>
                 <div class="summary-desc">First sight of the Atlantic</div>
             </div>
         </div>
@@ -522,7 +614,7 @@
             <div class="summary-date">Sun 31</div>
             <div class="summary-info">
                 <div class="summary-route">Cahersiveen → Caherdaniel</div>
-                <div class="summary-stats">55 km / 34 mi &nbsp;·&nbsp; ↑ 780m &nbsp;·&nbsp; Hard</div>
+                <div class="summary-stats">55 km / 34 mi &nbsp;·&nbsp; ↑ 780m <span class="badge badge--hard">Hard</span></div>
                 <div class="summary-desc">Skellig Ring — "siiiick views"</div>
             </div>
         </div>
@@ -530,7 +622,7 @@
             <div class="summary-date">Mon 1</div>
             <div class="summary-info">
                 <div class="summary-route">Caherdaniel → Kenmare</div>
-                <div class="summary-stats">47 km / 29 mi &nbsp;·&nbsp; ↑ 370m &nbsp;·&nbsp; Moderate</div>
+                <div class="summary-stats">47 km / 29 mi &nbsp;·&nbsp; ↑ 370m <span class="badge badge--moderate">Moderate</span></div>
                 <div class="summary-desc">Recovery day, colourful Sneem</div>
             </div>
         </div>
@@ -538,7 +630,7 @@
             <div class="summary-date">Tue 2</div>
             <div class="summary-info">
                 <div class="summary-route">Kenmare → Killarney</div>
-                <div class="summary-stats">45 km / 28 mi &nbsp;·&nbsp; ↑ 580m &nbsp;·&nbsp; Hard</div>
+                <div class="summary-stats">45 km / 28 mi &nbsp;·&nbsp; ↑ 580m <span class="badge badge--hard">Hard</span></div>
                 <div class="summary-desc">The "savage" Gap of Dunloe</div>
             </div>
         </div>
@@ -590,7 +682,7 @@
         </div>
         <div class="day-meta">
             <div class="distance">22.4 km / 13.9 mi</div>
-            <div class="elevation">↑ 110m / 361ft &nbsp; Easy</div>
+            <div class="elevation">↑ 110m / 361ft <span class="badge badge--easy">Easy</span></div>
         </div>
     </div>
     <div class="day-body">
@@ -618,7 +710,7 @@
         <div class="evening-box">
             <h4>Tonight in Killorglin</h4>
             <p><span class="stay-name">Laune Bridge House B&B</span> — triple room, 3-minute walk to town. <a href="https://launebridgehouse.com/" target="_blank">Book direct</a> or <a href="https://www.booking.com/hotel/ie/laune-bridge-house.html" target="_blank">Booking.com</a></p>
-            <p style="margin-top:8px;font-size:0.9em"><strong>Eat:</strong> Nick's Seafood &amp; Gastro Bar or Kingdom 1795 for dinner. Pint at Falvey's — you might catch a trad session.</p>
+            <p><strong>Eat:</strong> Nick's Seafood &amp; Gastro Bar or Kingdom 1795 for dinner. Pint at Falvey's — you might catch a trad session.</p>
         </div>
     </div>
 </div>
@@ -633,7 +725,7 @@
         </div>
         <div class="day-meta">
             <div class="distance">40.2 km / 25.0 mi</div>
-            <div class="elevation">↑ 380m / 1,247ft &nbsp; Moderate</div>
+            <div class="elevation">↑ 380m / 1,247ft <span class="badge badge--moderate">Moderate</span></div>
         </div>
     </div>
     <div class="day-body">
@@ -662,7 +754,7 @@
         <div class="evening-box">
             <h4>Tonight in Cahersiveen</h4>
             <p><span class="stay-name">Cúl Draíochta B&B</span> — sea views, cycling-friendly hosts who'll dry your gear. <a href="https://www.booking.com/bed-and-breakfast/city/ie/cathair-saidhbhin.html" target="_blank">Booking.com</a></p>
-            <p style="margin-top:8px;font-size:0.9em"><strong>Eat:</strong> QC's for top-tier fresh seafood. Pint at Mike Murt's — old-school pub with trad sessions.</p>
+            <p><strong>Eat:</strong> QC's for top-tier fresh seafood. Pint at Mike Murt's — old-school pub with trad sessions.</p>
         </div>
     </div>
 </div>
@@ -677,7 +769,7 @@
         </div>
         <div class="day-meta">
             <div class="distance">55.4 km / 34.4 mi</div>
-            <div class="elevation">↑ 780m / 2,559ft &nbsp; Hard</div>
+            <div class="elevation">↑ 780m / 2,559ft <span class="badge badge--hard">Hard</span></div>
         </div>
     </div>
     <div class="day-body">
@@ -708,7 +800,7 @@
         <div class="evening-box">
             <h4>Tonight in Caherdaniel</h4>
             <p><span class="stay-name">Tobervilla Guest House</span> — Deluxe Triple Room in a restored historic building near Derrynane Beach. <a href="https://tobervillahouse.com/" target="_blank">Book direct</a></p>
-            <p style="margin-top:8px;font-size:0.9em"><strong>Eat:</strong> The Blind Piper — hearty locally-sourced food, proper character pub. Pint at Keating's for the best Guinness in Kerry.</p>
+            <p><strong>Eat:</strong> The Blind Piper — hearty locally-sourced food, proper character pub. Pint at Keating's for the best Guinness in Kerry.</p>
         </div>
     </div>
 </div>
@@ -723,7 +815,7 @@
         </div>
         <div class="day-meta">
             <div class="distance">46.9 km / 29.1 mi</div>
-            <div class="elevation">↑ 370m / 1,214ft &nbsp; Moderate</div>
+            <div class="elevation">↑ 370m / 1,214ft <span class="badge badge--moderate">Moderate</span></div>
         </div>
     </div>
     <div class="day-body">
@@ -752,7 +844,7 @@
         <div class="evening-box">
             <h4>Tonight in Kenmare</h4>
             <p><span class="stay-name">Foley's Town House</span> — heart of Kenmare with its own restaurant, bar, and live trad music. <a href="https://foleyskenmare.com/" target="_blank">Book direct</a> or <a href="https://www.booking.com/city/ie/kenmare.html" target="_blank">Booking.com</a></p>
-            <p style="margin-top:8px;font-size:0.9em"><strong>Eat:</strong> Foley's own restaurant or explore Kenmare's many options. This is a proper food town — you won't go wrong.</p>
+            <p><strong>Eat:</strong> Foley's own restaurant or explore Kenmare's many options. This is a proper food town — you won't go wrong.</p>
         </div>
     </div>
 </div>
@@ -767,7 +859,7 @@
         </div>
         <div class="day-meta">
             <div class="distance">45.3 km / 28.1 mi</div>
-            <div class="elevation">↑ 580m / 1,903ft &nbsp; Hard</div>
+            <div class="elevation">↑ 580m / 1,903ft <span class="badge badge--hard">Hard</span></div>
         </div>
     </div>
     <div class="day-body">
@@ -798,7 +890,7 @@
         <div class="evening-box">
             <h4>Tonight in Killarney — Celebration Dinner</h4>
             <p><span class="stay-name">Killarney Lodge</span> — 4-star guesthouse, 1 minute walk from the train station. <a href="https://killarneylodge.ie/" target="_blank">Book direct</a> or <a href="https://www.booking.com/bed-and-breakfast/city/ie/killarney.html" target="_blank">Booking.com</a></p>
-            <p style="margin-top:8px;font-size:0.9em"><strong>Eat:</strong> You've just cycled through the best scenery in Ireland. Treat yourselves. Killarney has endless options. Return bikes to Killarney Bike Rental.</p>
+            <p><strong>Eat:</strong> You've just cycled through the best scenery in Ireland. Treat yourselves. Killarney has endless options. Return bikes to Killarney Bike Rental.</p>
         </div>
     </div>
 </div>
@@ -900,6 +992,22 @@
     <p style="margin-top:4px;">Photos: Wikimedia Commons (CC-BY-SA). Map: OpenStreetMap contributors.</p>
 </div>
 
+<script>
+document.querySelectorAll('.day-card, .travel-card, .checklist, .summary-section').forEach(function(el) {
+    el.classList.add('animate-on-scroll');
+});
+var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+    observer.observe(el);
+});
+</script>
 
 </body>
 </html>
