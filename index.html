@@ -319,6 +319,18 @@
             color: var(--orange) !important;
             margin: 0 0 8px !important;
             font-size: 0.9em !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .evening-box h4::before {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 20px;
+            background: linear-gradient(to bottom, #f5e6c8 30%, #1a1a1a 30%);
+            border-radius: 2px 2px 1px 1px;
+            flex-shrink: 0;
         }
         .evening-box .stay-name {
             font-weight: bold;
