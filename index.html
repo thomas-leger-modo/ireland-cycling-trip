@@ -179,11 +179,14 @@
         .day-card {
             background: var(--white);
             border-radius: 12px;
-            margin: 24px auto;
+            margin: 24px 24px;
             max-width: 960px;
             box-shadow: 0 2px 16px var(--shadow);
             overflow: hidden;
             border: 1px solid var(--border);
+        }
+        @media (min-width: 1008px) {
+            .day-card { margin-left: auto; margin-right: auto; }
         }
         .day-header {
             display: flex;
@@ -335,6 +338,11 @@
             padding: 28px 32px;
             border: 1px solid var(--border);
             border-left: 5px solid var(--slate-light);
+            margin-left: 24px;
+            margin-right: 24px;
+        }
+        @media (min-width: 1008px) {
+            .travel-card { margin-left: auto; margin-right: auto; }
         }
         .travel-card h3 {
             color: var(--slate);
