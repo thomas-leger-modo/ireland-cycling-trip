@@ -103,7 +103,60 @@
             font-family: 'Helvetica Neue', sans-serif;
         }
 
-        /* Komoot embeds */
+        /* Route summary */
+        .summary-days {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .summary-day {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .summary-day:last-child { border-bottom: none; }
+        .summary-date {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.85em;
+            color: var(--slate-light);
+            min-width: 48px;
+            flex-shrink: 0;
+        }
+        .summary-info {
+            flex: 1;
+        }
+        .summary-route {
+            font-weight: bold;
+            color: var(--slate);
+        }
+        .summary-stats {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.85em;
+            color: var(--green);
+            margin-top: 2px;
+        }
+        .summary-desc {
+            font-size: 0.85em;
+            font-style: italic;
+            color: var(--slate-light);
+            margin-top: 2px;
+        }
+        .summary-day--rest .summary-route {
+            color: var(--slate-light);
+            font-weight: normal;
+        }
+        .summary-day--total {
+            padding-top: 16px;
+            border-top: 2px solid var(--green);
+        }
+        .summary-day--total .summary-route {
+            color: var(--green-dark);
+        }
+        .summary-day--total .summary-stats {
+            font-weight: bold;
+        }
 
         /* Section headers */
         .section-header {
@@ -417,25 +470,80 @@
 </div>
 
 <!-- Route Summary -->
-<div class="checklist" style="margin-top: 40px;">
+<div class="checklist summary-section" style="margin-top: 40px;">
     <h2>Route Summary</h2>
-    <p style="font-size:0.9em; color: var(--slate-light); margin-bottom: 16px;">Five days around the Iveragh Peninsula. Plenty of time for pub stops, photos, and comparing niggles.</p>
-    <table class="budget-table" style="margin-top:0;">
-        <thead>
-            <tr><th>Day</th><th>Route</th><th>Distance</th><th>Ascent</th><th class="hide-mobile"></th></tr>
-        </thead>
-        <tbody>
-            <tr><td style="color:var(--slate-light);">Thu 28</td><td>Arrive in Dublin</td><td colspan="2" style="color:var(--slate-light);">—</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Pints, jet lag, excitement</td></tr>
-            <tr><td style="color:var(--slate-light);">Fri 29</td><td>Killarney → Killorglin</td><td>22 km / 14 mi</td><td>↑ 110m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Train + easy riverside warm-up</td></tr>
-            <tr><td style="color:var(--slate-light);">Sat 30</td><td>Killorglin → Cahersiveen</td><td>40 km / 25 mi</td><td>↑ 380m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">First sight of the Atlantic</td></tr>
-            <tr><td style="color:var(--slate-light);">Sun 31</td><td>Cahersiveen → Caherdaniel</td><td>55 km / 34 mi</td><td>↑ 780m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Skellig Ring, "siiiick views"</td></tr>
-            <tr><td style="color:var(--slate-light);">Mon 1</td><td>Caherdaniel → Kenmare</td><td>47 km / 29 mi</td><td>↑ 370m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Recovery day, colourful Sneem</td></tr>
-            <tr><td style="color:var(--slate-light);">Tue 2</td><td>Kenmare → Killarney</td><td>45 km / 28 mi</td><td>↑ 580m</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">The "savage" Gap of Dunloe</td></tr>
-            <tr><td style="color:var(--slate-light);">Wed 3</td><td>Train to Dublin</td><td colspan="2" style="color:var(--slate-light);">—</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">Legs up, debrief the trip</td></tr>
-            <tr><td style="color:var(--slate-light);">Thu 4</td><td>Fly home</td><td colspan="2" style="color:var(--slate-light);">—</td><td class="hide-mobile" style="font-style:italic;color:var(--slate-light);">No bikes, no hills, just memories</td></tr>
-            <tr><td></td><td><strong>Total cycling</strong></td><td><strong>210 km / 130 mi</strong></td><td><strong>↑ 2,220m</strong></td><td></td></tr>
-        </tbody>
-    </table>
+    <p style="font-size:0.9em; color: var(--slate-light); margin-bottom: 20px;">Five days around the Iveragh Peninsula. Plenty of time for pub stops, photos, and comparing niggles.</p>
+
+    <div class="summary-days">
+        <div class="summary-day summary-day--rest">
+            <div class="summary-date">Thu 28</div>
+            <div class="summary-info">
+                <div class="summary-route">Arrive in Dublin</div>
+                <div class="summary-desc">Pints, jet lag, excitement</div>
+            </div>
+        </div>
+        <div class="summary-day">
+            <div class="summary-date">Fri 29</div>
+            <div class="summary-info">
+                <div class="summary-route">Killarney → Killorglin</div>
+                <div class="summary-stats">22 km / 14 mi &nbsp;·&nbsp; ↑ 110m &nbsp;·&nbsp; Easy</div>
+                <div class="summary-desc">Train + easy riverside warm-up</div>
+            </div>
+        </div>
+        <div class="summary-day">
+            <div class="summary-date">Sat 30</div>
+            <div class="summary-info">
+                <div class="summary-route">Killorglin → Cahersiveen</div>
+                <div class="summary-stats">40 km / 25 mi &nbsp;·&nbsp; ↑ 380m &nbsp;·&nbsp; Moderate</div>
+                <div class="summary-desc">First sight of the Atlantic</div>
+            </div>
+        </div>
+        <div class="summary-day">
+            <div class="summary-date">Sun 31</div>
+            <div class="summary-info">
+                <div class="summary-route">Cahersiveen → Caherdaniel</div>
+                <div class="summary-stats">55 km / 34 mi &nbsp;·&nbsp; ↑ 780m &nbsp;·&nbsp; Hard</div>
+                <div class="summary-desc">Skellig Ring — "siiiick views"</div>
+            </div>
+        </div>
+        <div class="summary-day">
+            <div class="summary-date">Mon 1</div>
+            <div class="summary-info">
+                <div class="summary-route">Caherdaniel → Kenmare</div>
+                <div class="summary-stats">47 km / 29 mi &nbsp;·&nbsp; ↑ 370m &nbsp;·&nbsp; Moderate</div>
+                <div class="summary-desc">Recovery day, colourful Sneem</div>
+            </div>
+        </div>
+        <div class="summary-day">
+            <div class="summary-date">Tue 2</div>
+            <div class="summary-info">
+                <div class="summary-route">Kenmare → Killarney</div>
+                <div class="summary-stats">45 km / 28 mi &nbsp;·&nbsp; ↑ 580m &nbsp;·&nbsp; Hard</div>
+                <div class="summary-desc">The "savage" Gap of Dunloe</div>
+            </div>
+        </div>
+        <div class="summary-day summary-day--rest">
+            <div class="summary-date">Wed 3</div>
+            <div class="summary-info">
+                <div class="summary-route">Train to Dublin</div>
+                <div class="summary-desc">Legs up, debrief the trip</div>
+            </div>
+        </div>
+        <div class="summary-day summary-day--rest">
+            <div class="summary-date">Thu 4</div>
+            <div class="summary-info">
+                <div class="summary-route">Fly home</div>
+                <div class="summary-desc">No bikes, no hills, just memories</div>
+            </div>
+        </div>
+        <div class="summary-day summary-day--total">
+            <div class="summary-date"></div>
+            <div class="summary-info">
+                <div class="summary-route">Total cycling</div>
+                <div class="summary-stats">210 km / 130 mi &nbsp;·&nbsp; ↑ 2,220m / 7,283ft</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Day 0: Dublin -->
